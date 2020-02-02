@@ -1,1 +1,9 @@
-html { font-family: 'Roboto', sans-serif; }
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
