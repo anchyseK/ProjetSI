@@ -1,26 +1,14 @@
 import React from "react";
-import {
-  Link as RouterLink,
-  LinkProps as RouterLinkProps
-} from "react-router-dom";
-import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import { Omit } from "@material-ui/types";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import ListSubheader from "@material-ui/core/ListSubheader";
 import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import CardContent from "@material-ui/core/CardContent";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import Slider from "./navslide.component";
 
 import HomeIcon from "@material-ui/icons/Home";
 import AppsIcon from "@material-ui/icons/Apps";
@@ -30,33 +18,6 @@ import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up("md")]: {
-        display: "none"
-      }
-    },
-    title: {
-      flexGrow: 1
-    },
-    link: {
-      margin: theme.spacing(1, 1.5),
-      "&:hover": {
-        textDecoration: "none"
-      },
-      [theme.breakpoints.down("sm")]: {
-        display: "none"
-      }
-    },
-    linkButton: {
-      marginLeft: theme.spacing(0),
-      [theme.breakpoints.up("md")]: {
-        marginLeft: theme.spacing(5)
-      }
-    },
     list: {
       width: 250
     },
@@ -69,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Navbar() {
+export default function NavSlide() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -148,63 +109,9 @@ export default function Navbar() {
     </div>
   );
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Projet SI
-          </Typography>
-          <nav>
-            <Slider />
-            <Link
-              variant="button"
-              color="inherit"
-              component={RouterLink}
-              to="/"
-              className={classes.link}
-            >
-              Accueil
-            </Link>
-            <Link
-              variant="button"
-              color="inherit"
-              component={RouterLink}
-              to="/formations"
-              className={classes.link}
-            >
-              Formations
-            </Link>
-            <Link
-              variant="button"
-              color="inherit"
-              component={RouterLink}
-              to="/rejoindre"
-              className={classes.link}
-            >
-              Nous rejoindre
-            </Link>
-            <Button
-              variant="outlined"
-              color="inherit"
-              component={RouterLink}
-              to="/connexion"
-              className={classes.linkButton}
-            >
-              Se connecter
-            </Button>
-          </nav>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+  return(
+    <Drawer open={open} onClose={handleDrawerToggle}>
+      {drawer}
+    </Drawer>
+  )
 }
