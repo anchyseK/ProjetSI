@@ -1,27 +1,22 @@
 import React from "react";
-import {
-  Link as RouterLink,
-  LinkProps as RouterLinkProps
-} from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Omit } from "@material-ui/types";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import CardContent from "@material-ui/core/CardContent";
+
 import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import ListSubheader from "@material-ui/core/ListSubheader";
 import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import CardContent from "@material-ui/core/CardContent";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import Slider from "./navslide.component";
-
 import HomeIcon from "@material-ui/icons/Home";
 import AppsIcon from "@material-ui/icons/Apps";
 import GroupIcon from "@material-ui/icons/Group";
@@ -165,7 +160,9 @@ export default function Navbar() {
             Projet SI
           </Typography>
           <nav>
-            <Slider />
+            <Drawer open={open} onClose={handleDrawerToggle}>
+              {drawer}
+            </Drawer>
             <Link
               variant="button"
               color="inherit"

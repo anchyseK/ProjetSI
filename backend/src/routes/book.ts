@@ -4,10 +4,12 @@ import { Book } from "../models";
 const router = Router();
 
 router.route("/add").post((req, res) => {
+  console.log(req.body);
   const { title, author, genre } = req.body;
 
   if (!title || !author) {
     res.status(422).send();
+    return;
   }
 
   const book = new Book({
