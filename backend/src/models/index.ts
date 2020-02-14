@@ -4,7 +4,8 @@ import { mongoHostname, mongoPort, mongoDb } from "../config";
 
 connect(`mongodb://${mongoHostname}:${mongoPort}/${mongoDb}`, {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
