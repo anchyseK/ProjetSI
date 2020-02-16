@@ -1,5 +1,6 @@
 import { Router } from "express";
 import BookRouter from "./book";
+import CourseRouter from "./course";
 
 const router = Router();
 
@@ -8,5 +9,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/book", BookRouter);
+router.use("/course", CourseRouter);
 
 export default router;
