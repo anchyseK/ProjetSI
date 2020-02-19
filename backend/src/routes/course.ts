@@ -37,6 +37,18 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).json("Error: " + err));
 });
 
+router.route("/:title/:description").get(async (req, res) => {
+  const { title, description } = req.params;
+  try {
+    const course = await Course.findOne({ nom: title }, { description: description });
+    res.json(course);
+  }
+  catch (error) {
+    res.status(400).json("Error: " + error);
+    throw error;
+  }
+});
+
 router.route("/delete/:id").delete((req, res) => {
   const { id } = req.params;
   Course.deleteOne({ _id: id })

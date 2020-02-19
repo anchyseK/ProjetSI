@@ -1,4 +1,3 @@
-import Book from "./book";
 import Course from "./course";
 import { connect, connection } from "mongoose";
 import { mongoHostname, mongoPort, mongoDb } from "../config";
@@ -12,4 +11,4 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
-export { Book, Course };
+export { Course };

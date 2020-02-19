@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Navbar from "./components/commun/navbar.component";
 import Footer from "./components/commun/footer.component";
 import Formations from "./components/formations.component";
-import Books from "./components/commun/books.component";
 import Connexion from "./components/connection.component";
 
 const theme = createMuiTheme({
@@ -37,7 +36,6 @@ const App = () => {
           </div>
           <div>
             <Route path="/connexion" component={Connexion} />
-            <Route path="/inscription" component={Books} />
             <Route path="/formations" component={Formations} />
           </div>
         </Router>
