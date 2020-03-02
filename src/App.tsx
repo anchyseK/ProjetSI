@@ -8,10 +8,10 @@ import Navbar from "./components/commun/navbar.component";
 import Footer from "./components/commun/footer.component";
 import Formations from "./components/formations.component";
 import Connexion from "./components/connection.component";
+import { red } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark"
   }
 });
 

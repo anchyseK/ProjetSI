@@ -20,7 +20,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: 345
+      maxWidth: 450
     },
     media: {
       height: 0,
@@ -59,7 +59,6 @@ export default function Course(props: any) {
         <CardMedia
           component="img"
           alt={course.title}
-          height="140"
           image={course.image}
           title={course.title}
         />

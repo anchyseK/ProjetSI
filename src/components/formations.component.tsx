@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 import * as APICourse from "../api/course";
 import { Course as ICourse } from "../../types/course";
+import { Test as ITest } from "../../types/test";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,30 +25,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function FullWidthGrid() {
   const classes = useStyles();
-  const [courses, setCourses] = React.useState<ICourse[]>([]);
+  const [courses, setCourses] = React.useState<ITest[]>([]);
 
   useEffect(() => {
-    APICourse.GetCourses()
+    /* APICourse.GetCourses()
+      .then(res => {
+        // const courses = res;
+        
+        setCourses(courses);
+    }) */
+    APICourse.getTest()
       .then(res => {
         const courses = res;
         setCourses(courses);
-    })
+      })
   });
 
   return (
     <div className={classes.root}>
-        <Typography variant="h4" className={classes.title} align="center">
-            Nos formations :
-        </Typography>
-        <Grid container>
-            <Grid container justify="center">
-                { courses.map(course => 
-                  <Grid item className={classes.course}>
-                     <Course course={course} />
-                  </Grid >
-                )}
-            </Grid>
-        </Grid>
     </div>
   );
 }
