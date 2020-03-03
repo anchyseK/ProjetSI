@@ -1,3 +1,1 @@
-export interface Test {
-    nom: string;
-}
+export type Test = string;

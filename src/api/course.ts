@@ -37,9 +37,10 @@ export async function getCourse(title: string, description: string): Promise<Cou
     }
 }
 */
-export async function getTest(): Promise<Array<Test>> {
+export async function getTest(): Promise<Test[]> {
     try {
-        const response = await Connection.get<Test[]>("/formationnom");
+        const response = await Connection.get<Test[]>("/consultation_formation");
+        console.log("aaa");
         return response.data;
     } catch (error) {
         if (error.response) {
