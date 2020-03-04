@@ -38,22 +38,9 @@ export async function getCourse(title: string, description: string): Promise<Cou
 }
 */
 export async function getTest(): Promise<Test[]> {
-    try {
-        const response = await Connection.get<Test[]>("/consultation_formation");
-        console.log("aaa");
-        return response.data;
-    } catch (error) {
-        if (error.response) {
-            console.error(error.response.data);
-            console.error(error.response.status);
-            console.error(error.response.headers);
-        } else if (error.request) {
-            console.error(error.request);
-        } else {
-            console.error('Error', error.message);
-        }
-        throw error;
+    const response = await Connection.get<Test[]>("/consultation_formation");
+    if (response.status >= 400) {
+        throw new Error(response.statusText);
     }
-  }
-
-// https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
+    return response.data;
+}

@@ -42,11 +42,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Course(props: any) {
+export default function Course({ title }: { title: string }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [expandedLabel, setExpandedLabel] = React.useState("Voir plus");
-  const course = props.course;
+  const course = title;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -58,16 +58,16 @@ export default function Course(props: any) {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt={course.title}
-          image={course.image}
-          title={course.title}
+          alt={course}
+          image="https://i.ytimg.com/vi/hBh_CC5y8-s/maxresdefault.jpg"
+          title={course}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {course.title}
+            {course}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {course.description}
+            nfshfbshebfhzsfefgyzfvzfzytfz
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -99,7 +99,7 @@ export default function Course(props: any) {
         <CardHeader
           avatar={
             <Avatar aria-label="Formateur" className={classes.avatar}>
-              R
+              F
             </Avatar>
           }
           title="Formateur"
