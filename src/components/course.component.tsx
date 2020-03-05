@@ -16,6 +16,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Tooltip from "@material-ui/core/Tooltip";
+import { Link } from 'react-router-dom';
+import RandomColor from 'randomcolor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
     media: {
       height: 0,
       paddingTop: "56.25%" // 16:9
+    },
+    link: {
+      textDecoration: "none"
     },
     expand: {
       transform: "rotate(0deg)",
@@ -47,6 +52,7 @@ export default function Course({ title }: { title: string }) {
   const [expanded, setExpanded] = React.useState(false);
   const [expandedLabel, setExpandedLabel] = React.useState("Voir plus");
   const course = title;
+  const color = RandomColor();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -55,11 +61,11 @@ export default function Course({ title }: { title: string }) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea component={Link} to={'/first'}>
         <CardMedia
           component="img"
           alt={course}
-          image="https://i.ytimg.com/vi/hBh_CC5y8-s/maxresdefault.jpg"
+          image={`https://dummyimage.com/600x400/fff/8ccfa7&text=Langage+C`}
           title={course}
         />
         <CardContent>

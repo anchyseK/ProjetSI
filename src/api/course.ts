@@ -38,9 +38,10 @@ export async function getCourse(title: string, description: string): Promise<Cou
 }
 */
 export async function getTest(): Promise<Test[]> {
-    const response = await Connection.get<Test[]>("/consultation_formation");
-    if (response.status >= 400) {
-        throw new Error(response.statusText);
+    try {
+        const response = await Connection.get<Test[]>("/consultation_formation");
+        return response.data;
+    } catch (error) {
+        throw error;
     }
-    return response.data;
 }
