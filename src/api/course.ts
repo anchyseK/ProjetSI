@@ -45,3 +45,12 @@ export async function getTest(): Promise<Test[]> {
         throw error;
     }
 }
+
+export async function getCourse(): Promise<any> {
+    try {
+        const response = await Connection.get<any>("/consultation_module");
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}

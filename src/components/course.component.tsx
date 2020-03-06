@@ -52,7 +52,9 @@ export default function Course({ title }: { title: string }) {
   const [expanded, setExpanded] = React.useState(false);
   const [expandedLabel, setExpandedLabel] = React.useState("Voir plus");
   const course = title;
-  const color = RandomColor();
+  const newCourse = course.replace(/ /g, "+");
+  const bgColor = RandomColor().substring(1);
+  const txtColor = RandomColor().substring(1);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -65,7 +67,7 @@ export default function Course({ title }: { title: string }) {
         <CardMedia
           component="img"
           alt={course}
-          image={`https://dummyimage.com/600x400/fff/8ccfa7&text=Langage+C`}
+          image={`https://dummyimage.com/600x400/${bgColor}/${txtColor}&text=${newCourse}`}
           title={course}
         />
         <CardContent>
@@ -73,7 +75,7 @@ export default function Course({ title }: { title: string }) {
             {course}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            nfshfbshebfhzsfefgyzfvzfzytfz
+            Description de la formation...
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -6,6 +6,7 @@ import Navbar from "./components/commun/navbar.component";
 import Footer from "./components/commun/footer.component";
 import Formations from "./components/formations.component";
 import Connexion from "./components/connection.component";
+import Treeview from "./components/treeview.component";
 
 const useStyles = makeStyles(theme => ({
   site: {
@@ -28,6 +29,7 @@ const App = () => {
           <div>
             <Route path="/connexion" component={Connexion} />
             <Route path="/formations" component={Formations} />
+            <Route path="/cours" component={Treeview} />
           </div>
         </Router>
       </div>
